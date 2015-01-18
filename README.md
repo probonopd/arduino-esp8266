@@ -9,3 +9,5 @@ ESP-01 module
 
 Power supply for this module is tricky. __Do not try to power the module from the USB serial adapter you using to talk to the device, as most likely the power will not be enough.__
 Solder VCC and CH_PD pin together (TODO: Check whether using a 1k pullup resistor changes the overall power consumption). Use a Prolific USB serial adapter to provide the 3.3V and GND, use another(!) serial adapter connected to the same USB hub (so that they share GND) to provide the RX and TX pins for the serial connection. This setup might not be the cleanest, but it is the quickest to get up and running. For programming, install a jumper between GND and GPIO0 as shown in the picture.
+
+This setup was inspired by Julian Ilett's video on https://www.youtube.com/watch?v=VvIoBFLj2Xo
