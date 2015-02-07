@@ -7,7 +7,8 @@ jdk:
 - openjdk6
 
 script:
-- sudo apt-get -y install git autoconf build-essential gperf bison flex texinfo libtool libncurses5-dev wget gawk libc6-dev-amd64 python-serial libexpat-dev
+- sudo apt-get update -qq
+- sudo apt-get install -qq git autoconf build-essential gperf bison flex texinfo libtool libncurses5-dev wget gawk libc6-dev-amd64 python-serial libexpat-dev
 - git clone -b lx106 git://github.com/jcmvbkbc/crosstool-NG.git 
 - cd crosstool-NG
 - ./bootstrap && ./configure --prefix=`pwd` && make && make install
