@@ -25,8 +25,8 @@ script:
 - sed -i -e "s|d2ae7aa8a3bb8639e3b1d2a7f6b764e274b25d3f|e8c6df47299348a0233e18647e2ed93c8afe65c2|g" esptool-0.0.3.tgz.sha
 - ant clean build
 - echo "" | ant dist
-- bash -x $HOME/build/probonopd/arduino-esp8266/generate-appimage
-- ls -lh ./linux/arduino-*.tar.xz
+- bash -x $TRAVIS_BUILD_DIR/generate-appimage
+- ls -lh $TRAVIS_BUILD_DIR/Arduino/build/linux/arduino-*.tar.xz
 - ls -lh $TRAVIS_BUILD_DIR/linux64-xtensa-lx106-elf.tgz
 
 deploy:
