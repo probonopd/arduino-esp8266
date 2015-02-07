@@ -1,4 +1,4 @@
-# arduino-esp8266
+# arduino-esp8266 [![Build Status](https://travis-ci.org/probonopd/arduino-esp8266.svg?branch=master)](https://travis-ci.org/probonopd/arduino-esp8266)
 
 On https://github.com/igrr/Arduino/tree/esp8266 there is a work-in-progress branch of the Arduino IDE targeting the ESP8266 platform. This means that you can run Arduino code on inexpensive modules like the ESP-01, without the need for an actual Arduino.
 
