@@ -11,7 +11,7 @@ env
 mkdir -p $TRAVIS_BUILD_DIR/bundle
 cd $TRAVIS_BUILD_DIR/bundle
 ls -lh $TRAVIS_BUILD_DIR/Arduino/build/linux/arduino-*.tar.xz
-tar -Jxf $TRAVIS_BUILD_DIR/Arduino/build/linux/arduino-*.tar.xz
+tar xvJf $TRAVIS_BUILD_DIR/Arduino/build/linux/arduino-*.tar.xz
 ls -lh
 mv arduino-* Arduino.AppDir
 ls -lh
