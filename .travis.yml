@@ -7,8 +7,8 @@ jdk:
 - openjdk6
 
 script:
-- sudo apt-get update
-- sudo apt-get install -y autoconf gperf bison flex texinfo libtool libncurses5-dev gawk python-serial libexpat-dev
+- sudo apt-get update -qq
+- sudo apt-get install -qq autoconf gperf bison flex texinfo libtool libncurses5-dev gawk python-serial libexpat-dev
 - git clone -b lx106 git://github.com/jcmvbkbc/crosstool-NG.git 
 - cd crosstool-NG
 - echo $LD_LIBRARY_PATH
@@ -16,7 +16,8 @@ script:
 - ./bootstrap && ./configure --prefix=`pwd` && make && make install
 - ./ct-ng xtensa-lx106-elf
 - ./ct-ng build
-- find .
+- cd ./.build
+- tar czvf $TRAVIS_BUILD_DIR/linux-x64-xtensa-lx106-elf.tgz xtensa-lx106-elf/
 - cd $TRAVIS_BUILD_DIR
 - git clone https://github.com/igrr/Arduino.git --branch esp8266 --single-branch
 - cd Arduino/build
@@ -32,7 +33,9 @@ deploy:
     secure: iKoz+XGSeBxHTbPWdygLwb49ucEMofrQci4LYrT+BoJ5tIAsKl7YB8AdzQQAVU7YYD6gN1f7002aRSk8WBhEFUmSCeHK/70d52g7hXrN01o1vYQkKvNY8Ts1jS3KYYytfqxG7HuunuVI+v1C3j1QjKKAXZa3oZVqmk4znrTuZXU=
   skip_cleanup: true
   file_glob: true
-  file: '$TRAVIS_BUILD_DIR/Arduino/build/linux/arduino-*.tar.xz'
+  file: 
+    - '$TRAVIS_BUILD_DIR/Arduino/build/linux/arduino-*.tar.xz'
+    - '$TRAVIS_BUILD_DIR/linux-x64-xtensa-lx106-elf.tgz'
   on:
     tags: true
     all_branches: true
