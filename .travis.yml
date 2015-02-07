@@ -8,7 +8,7 @@ jdk:
 
 script:
 - sudo apt-get update
-- sudo apt-get install -y git autoconf build-essential gperf bison flex texinfo libtool libncurses5-dev wget gawk python-serial libexpat-dev
+- sudo apt-get install -y autoconf gperf bison flex texinfo libtool libncurses5-dev gawk python-serial libexpat-dev
 - git clone -b lx106 git://github.com/jcmvbkbc/crosstool-NG.git 
 - cd crosstool-NG
 - echo $LD_LIBRARY_PATH
@@ -16,6 +16,7 @@ script:
 - ./bootstrap && ./configure --prefix=`pwd` && make && make install
 - ./ct-ng xtensa-lx106-elf
 - ./ct-ng build
+- find .
 - cd $TRAVIS_BUILD_DIR
 - git clone https://github.com/igrr/Arduino.git --branch esp8266 --single-branch
 - cd Arduino/build
