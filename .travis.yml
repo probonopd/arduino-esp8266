@@ -7,6 +7,12 @@ jdk:
 - openjdk6
 
 script:
+- git clone -b lx106 git://github.com/jcmvbkbc/crosstool-NG.git 
+- cd crosstool-NG
+- ./bootstrap && ./configure --prefix=`pwd` && make && make install
+- ./ct-ng xtensa-lx106-elf
+- ./ct-ng build
+- cd $TRAVIS_BUILD_DIR
 - git clone https://github.com/igrr/Arduino.git --branch esp8266 --single-branch
 - cd Arduino/build
 - sed -i -e "s|d2ae7aa8a3bb8639e3b1d2a7f6b764e274b25d3f|e8c6df47299348a0233e18647e2ed93c8afe65c2|g" esptool-0.0.3.tgz.sha
