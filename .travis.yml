@@ -10,5 +10,5 @@ script:
 - git clone https://github.com/igrr/Arduino.git
 - cd Arduino/build
 - ant clean build
-- ant dist < /dev/null
+- echo "" | ant dist
 - find .
