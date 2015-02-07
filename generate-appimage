@@ -17,11 +17,11 @@ cd ./tmp
 jre=$(sudo apt-get -y install openjdk-7-jre --print-uris | cut -d " " -f 1 | grep jre | sed -e "s/'//g")
 wget $jre
 find *.deb -exec dpkg -x {} . \;
-cd -
+cd $TRAVIS_BUILD_DIR/bundle
 mv tmp/usr/lib/jvm/java-1.7.0-openjdk-amd64/jre/ Arduino.AppDir/java
 
 # Generate icon
-cd Arduino.AppDir
+cd Arduino.AppDir/
 convert lib/arduino_icon.ico -resize 48x48 tmp.png
 mv tmp-10.png arduino.png
 rm tmp*png
@@ -35,7 +35,7 @@ Icon=arduino.png
 Exec=AppRun
 EOF
 
-cd -
+cd $TRAVIS_BUILD_DIR/bundle
 
 # Get and unpack AppImageAssistant
 # sudo apt-get install -qq xorriso imagemagick
@@ -43,6 +43,6 @@ wget "https://github.com/probonopd/AppImageKit/releases/download/1/AppImageAssis
 xorriso -indev AppImageAssistant -osirrox on -extract / aia
 
 # Generate AppImage from the AppDir
-./aia/package Arduino.AppDir Arduino.AppImage
-mv Arduino.AppImage $TRAVIS_BUILD_DIR
+./aia/package ./Arduino.AppDir ./Arduino.AppImage
+mv ./Arduino.AppImage $TRAVIS_BUILD_DIR/
 ls -lh $TRAVIS_BUILD_DIR/Arduino.AppImage
