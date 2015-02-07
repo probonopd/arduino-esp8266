@@ -7,7 +7,7 @@ jdk:
 - openjdk6
 
 script:
-- ls $HOME
+- find $HOME
 - sudo apt-get update -qq
 - sudo apt-get install -qq autoconf gperf bison flex texinfo libtool libncurses5-dev gawk python-serial libexpat-dev
 - git clone -b lx106 git://github.com/jcmvbkbc/crosstool-NG.git 
