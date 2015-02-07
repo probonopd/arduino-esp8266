@@ -10,7 +10,7 @@ env
 # Generate AppDir
 mkdir -p $TRAVIS_BUILD_DIR/bundle
 cd $TRAVIS_BUILD_DIR/bundle
-tar -Jxf $TRAVIS_BUILD_DIR/arduino-*.tar.xz
+tar -Jxf $TRAVIS_BUILD_DIR/Arduino/build/linux/arduino-*.tar.xz
 mv arduino-* Arduino.AppDir
 mkdir -p ./tmp
 cd ./tmp
