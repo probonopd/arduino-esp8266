@@ -11,7 +11,9 @@ env
 mkdir -p $TRAVIS_BUILD_DIR/bundle
 cd $TRAVIS_BUILD_DIR/bundle
 tar -Jxf $TRAVIS_BUILD_DIR/Arduino/build/linux/arduino-*.tar.xz
+ls -lh
 mv arduino-* Arduino.AppDir
+ls -lh
 mkdir -p ./tmp
 cd ./tmp
 jre=$(sudo apt-get -y install openjdk-7-jre --print-uris | cut -d " " -f 1 | grep jre | sed -e "s/'//g")
