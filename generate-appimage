@@ -39,6 +39,7 @@ cd -
 
 # Get and unpack AppImageAssistant
 # sudo apt-get install -qq xorriso imagemagick
+wget "https://github.com/probonopd/AppImageKit/releases/download/1/AppImageAssistant"
 xorriso -indev AppImageAssistant -osirrox on -extract / aia
 
 # Generate AppImage from the AppDir
