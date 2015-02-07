@@ -11,4 +11,4 @@ script:
 - cd Arduino/build
 - ant clean build
 - echo "" | ant dist
-- find .
+- ls -lh ./linux/arduino-*.tar.xz
