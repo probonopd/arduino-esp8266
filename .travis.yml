@@ -17,7 +17,7 @@ script:
 - ./ct-ng xtensa-lx106-elf
 - ./ct-ng build
 - cd ./.build
-- tar czvf $TRAVIS_BUILD_DIR/linux64-xtensa-lx106-elf.tgz xtensa-lx106-elf/
+- tar czf $TRAVIS_BUILD_DIR/linux64-xtensa-lx106-elf.tgz xtensa-lx106-elf/
 - cd $TRAVIS_BUILD_DIR
 - git clone https://github.com/igrr/Arduino.git --branch esp8266 --single-branch
 - cd Arduino/build
@@ -25,7 +25,7 @@ script:
 - ant clean build
 - echo "" | ant dist
 - ls -lh ./linux/arduino-*.tar.xz
-- ls /usr/lib/jvm/
+- ls -lh $TRAVIS_BUILD_DIR/linux64-xtensa-lx106-elf.tgz
 
 deploy:
   provider: releases
