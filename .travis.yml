@@ -1,5 +1,6 @@
 ## https://github.com/arduino/Arduino/issues/2596
 
+sudo: false
 language: java
 
 jdk:
