@@ -7,9 +7,17 @@ jdk:
 - openjdk6
 
 script:
-- pwd
 - sudo apt-get update -qq
 - sudo apt-get install -qq autoconf gperf bison flex texinfo libtool libncurses5-dev gawk python-serial libexpat-dev xorriso imagemagick
+- git clone https://github.com/igrr/Arduino.git --branch esp8266 --single-branch
+- cd Arduino/build
+- sed -i -e "s|d2ae7aa8a3bb8639e3b1d2a7f6b764e274b25d3f|e8c6df47299348a0233e18647e2ed93c8afe65c2|g" esptool-0.0.3.tgz.sha
+- ant clean build
+- echo "" | ant dist
+- ls -lh $TRAVIS_BUILD_DIR/Arduino/build/linux/arduino-*.tar.xz
+- cd $TRAVIS_BUILD_DIR
+- bash -x $TRAVIS_BUILD_DIR/generate-appimage
+- cd $TRAVIS_BUILD_DIR
 - git clone -b lx106 git://github.com/jcmvbkbc/crosstool-NG.git 
 - cd crosstool-NG
 - echo $LD_LIBRARY_PATH
@@ -19,14 +27,6 @@ script:
 - ./ct-ng build
 - cd ./builds
 - tar czf $TRAVIS_BUILD_DIR/linux64-xtensa-lx106-elf.tgz xtensa-lx106-elf/
-- cd $TRAVIS_BUILD_DIR
-- git clone https://github.com/igrr/Arduino.git --branch esp8266 --single-branch
-- cd Arduino/build
-- sed -i -e "s|d2ae7aa8a3bb8639e3b1d2a7f6b764e274b25d3f|e8c6df47299348a0233e18647e2ed93c8afe65c2|g" esptool-0.0.3.tgz.sha
-- ant clean build
-- echo "" | ant dist
-- bash -x $TRAVIS_BUILD_DIR/generate-appimage
-- ls -lh $TRAVIS_BUILD_DIR/Arduino/build/linux/arduino-*.tar.xz
 - ls -lh $TRAVIS_BUILD_DIR/linux64-xtensa-lx106-elf.tgz
 
 deploy:
