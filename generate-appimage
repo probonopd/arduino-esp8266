@@ -23,22 +23,16 @@ cd $TRAVIS_BUILD_DIR/bundle
 mv tmp/usr/lib/jvm/java-1.7.0-openjdk-amd64/jre/ Arduino.AppDir/java
 
 # Generate icon
-cd Arduino.AppDir/
-ls lib/
-convert lib/arduino_icon.ico -resize 48x48 tmp.png
-mv tmp-10.png arduino.png
-rm tmp*png
+cp $TRAVIS_BUILD_DIR/arduino.png Arduino.AppDir/
 
 # Generate desktop file
-cat > arduino.desktop <<\EOF
+cat > Arduino.AppDir/arduino.desktop <<\EOF
 [Desktop Entry]
 Name=Arduino
 Type=Application
 Icon=arduino.png
 Exec=AppRun
 EOF
-
-cd $TRAVIS_BUILD_DIR/bundle
 
 # Get and unpack AppImageAssistant
 # sudo apt-get install -qq xorriso imagemagick
