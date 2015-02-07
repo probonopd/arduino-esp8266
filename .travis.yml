@@ -7,9 +7,9 @@ jdk:
 - openjdk6
 
 script:
-- find $HOME
+- pwd
 - sudo apt-get update -qq
-- sudo apt-get install -qq autoconf gperf bison flex texinfo libtool libncurses5-dev gawk python-serial libexpat-dev
+- sudo apt-get install -qq autoconf gperf bison flex texinfo libtool libncurses5-dev gawk python-serial libexpat-dev xorriso imagemagick
 - git clone -b lx106 git://github.com/jcmvbkbc/crosstool-NG.git 
 - cd crosstool-NG
 - echo $LD_LIBRARY_PATH
@@ -25,6 +25,7 @@ script:
 - sed -i -e "s|d2ae7aa8a3bb8639e3b1d2a7f6b764e274b25d3f|e8c6df47299348a0233e18647e2ed93c8afe65c2|g" esptool-0.0.3.tgz.sha
 - ant clean build
 - echo "" | ant dist
+- bash -x $HOME/build/probonopd/arduino-esp8266/generate-appimage
 - ls -lh ./linux/arduino-*.tar.xz
 - ls -lh $TRAVIS_BUILD_DIR/linux64-xtensa-lx106-elf.tgz
 
