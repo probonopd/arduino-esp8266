@@ -13,7 +13,7 @@ script:
 - ant clean build
 - echo "" | ant dist
 - ls -lh ./linux/arduino-*.tar.xz
-- ls/usr/lib/jvm/
+- ls /usr/lib/jvm/
 
 deploy:
   provider: releases
