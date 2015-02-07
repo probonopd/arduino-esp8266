@@ -13,3 +13,14 @@ script:
 - ant clean build
 - echo "" | ant dist
 - ls -lh ./linux/arduino-*.tar.xz
+
+deploy:
+  provider: releases
+  api_key:
+    secure: iKoz+XGSeBxHTbPWdygLwb49ucEMofrQci4LYrT+BoJ5tIAsKl7YB8AdzQQAVU7YYD6gN1f7002aRSk8WBhEFUmSCeHK/70d52g7hXrN01o1vYQkKvNY8Ts1jS3KYYytfqxG7HuunuVI+v1C3j1QjKKAXZa3oZVqmk4znrTuZXU=
+  skip_cleanup: true
+  file_glob: true
+  file: '$TRAVIS_BUILD_DIR/Arduino/build/linux/arduino-*.tar.xz'
+on:
+  tags: true
+  all_branches: true
