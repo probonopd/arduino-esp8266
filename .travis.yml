@@ -1,0 +1,11 @@
+## https://github.com/arduino/Arduino/issues/2596
+
+language: java
+
+jdk:
+- openjdk6
+
+script:
+- git clone https://github.com/igrr/Arduino.git
+- cd Arduino/build
+- ant clean build run
