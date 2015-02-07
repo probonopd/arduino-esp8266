@@ -7,7 +7,7 @@ jdk:
 - openjdk6
 
 script:
-- git clone https://github.com/igrr/Arduino.git
+- git clone https://github.com/igrr/Arduino.git --branch esp8266 --single-branch
 - cd Arduino/build
 - ant clean build
 - echo "" | ant dist
