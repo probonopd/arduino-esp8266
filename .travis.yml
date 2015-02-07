@@ -13,4 +13,5 @@ before_install:
 script:
 - git clone https://github.com/igrr/Arduino.git
 - cd Arduino/build
-- ant clean build run
+- ant clean build
+- find .
