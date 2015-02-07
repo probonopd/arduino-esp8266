@@ -11,8 +11,7 @@ env
 mkdir -p $TRAVIS_BUILD_DIR/bundle
 cd $TRAVIS_BUILD_DIR/bundle
 ls -lh $TRAVIS_BUILD_DIR/Arduino/build/linux/arduino-*.tar.xz
-tar xvJf $TRAVIS_BUILD_DIR/Arduino/build/linux/arduino-*.tar.xz
-ls -lh
+tar xJf $TRAVIS_BUILD_DIR/Arduino/build/linux/arduino-*.tar.xz
 mv arduino-* Arduino.AppDir
 ls -lh
 mkdir -p ./tmp
@@ -25,6 +24,7 @@ mv tmp/usr/lib/jvm/java-1.7.0-openjdk-amd64/jre/ Arduino.AppDir/java
 
 # Generate icon
 cd Arduino.AppDir/
+ls lib/
 convert lib/arduino_icon.ico -resize 48x48 tmp.png
 mv tmp-10.png arduino.png
 rm tmp*png
