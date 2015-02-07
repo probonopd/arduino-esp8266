@@ -9,5 +9,6 @@ jdk:
 script:
 - git clone https://github.com/igrr/Arduino.git
 - cd Arduino/build
-- ant clean build dist
+- ant clean build
+- ant dist < /dev/null
 - find .
