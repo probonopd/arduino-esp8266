@@ -38,6 +38,7 @@ deploy:
   file: 
     - '$TRAVIS_BUILD_DIR/Arduino/build/linux/arduino-*.tar.xz'
     - '$TRAVIS_BUILD_DIR/linux64-xtensa-lx106-elf.tgz'
+    - '$TRAVIS_BUILD_DIR/Arduino.AppImage'
   on:
     tags: true
     all_branches: true
