@@ -1,6 +1,6 @@
 # arduino-esp8266
 
-On https://github.com/igrr/Arduino/tree/ide-1.5.x-esp8266 there is a work-in-progress branch of the Arduino IDE targeting the ESP8266 platform. This means that you can run Arduino code on inexpensive modules like the ESP-01, without the need for an actual Arduino.
+On https://github.com/igrr/Arduino/tree/esp8266 there is a work-in-progress branch of the Arduino IDE targeting the ESP8266 platform. This means that you can run Arduino code on inexpensive modules like the ESP-01, without the need for an actual Arduino.
 
 ESP-01 module
 -------------
