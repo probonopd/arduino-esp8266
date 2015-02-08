@@ -26,13 +26,10 @@ mv tmp/usr/lib/jvm/java-1.7.0-openjdk-amd64/jre/ Arduino.AppDir/java
 mkdir -p Arduino.AppDir/hardware/tools/esp8266/
 cd $TRAVIS_BUILD_DIR/bundle/Arduino.AppDir/hardware/tools/esp8266/
 sudo mv $TRAVIS_BUILD_DIR/crosstool-NG/builds/xtensa-lx106-elf . # travis-ci needs sudo here?
-mkdir -p esptool-0.0.3/
-cd esptool-0.0.3/
-cp $TRAVIS_BUILD_DIR/esptool-ck/esptool esptool_linux64
-ln -s esptool_linux64 esptool
-cd $TRAVIS_BUILD_DIR/bundle/
+cp $TRAVIS_BUILD_DIR/esptool-ck/esptool .
 
 # Generate icon
+cd $TRAVIS_BUILD_DIR/bundle/
 cp $TRAVIS_BUILD_DIR/arduino.png Arduino.AppDir/
 
 # Generate desktop file
