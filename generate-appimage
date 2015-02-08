@@ -30,7 +30,7 @@ mkdir -p esptool-0.0.3/
 cd esptool-0.0.3/
 cp $TRAVIS_BUILD_DIR/esptool-ck/esptool esptool_linux64
 ln -s esptool_linux64 esptool
-cd -
+cd $TRAVIS_BUILD_DIR/bundle/
 
 # Generate icon
 cp $TRAVIS_BUILD_DIR/arduino.png Arduino.AppDir/
