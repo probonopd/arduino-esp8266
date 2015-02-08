@@ -45,7 +45,7 @@ Exec=AppRun
 EOF
 
 # Get and unpack AppImageAssistant
-# sudo apt-get install -qq xorriso imagemagick
+# sudo apt-get install -qq xorriso
 wget "https://github.com/probonopd/AppImageKit/releases/download/1/AppImageAssistant"
 xorriso -indev AppImageAssistant -osirrox on -extract / aia
 
