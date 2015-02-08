@@ -9,6 +9,11 @@ jdk:
 script:
 - sudo apt-get update -qq
 - sudo apt-get install -qq autoconf gperf bison flex texinfo libtool libncurses5-dev gawk python-serial libexpat-dev xorriso imagemagick
+- git clone https://github.com/igrr/esptool-ck.git
+- cd esptool-ck
+- sed -i -e "s|std=c99|std=gnu99|g" Makefile
+- make
+- cd $TRAVIS_BUILD_DIR
 - git clone https://github.com/igrr/Arduino.git --branch esp8266 --single-branch
 - cd Arduino/build
 - sed -i -e "s|d2ae7aa8a3bb8639e3b1d2a7f6b764e274b25d3f|e8c6df47299348a0233e18647e2ed93c8afe65c2|g" esptool-0.0.3.tgz.sha
