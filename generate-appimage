@@ -22,10 +22,14 @@ find *.deb -exec dpkg -x {} . \;
 cd $TRAVIS_BUILD_DIR/bundle
 mv tmp/usr/lib/jvm/java-1.7.0-openjdk-amd64/jre/ Arduino.AppDir/java
 
-# Add esp8266 toolchain
+# Add esp8266 toolchain and esptool
 mkdir -p Arduino.AppDir/hardware/tools/esp8266/
 cd Arduino.AppDir/hardware/tools/esp8266/
 tar xzf $TRAVIS_BUILD_DIR/linux64-xtensa-lx106-elf.tgz .
+mkdir -p esptool-0.0.3/
+cd esptool-0.0.3/
+cp $TRAVIS_BUILD_DIR/esptool-ck/esptool esptool_linux64
+ln -s esptool_linux64 esptool
 cd -
 
 # Generate icon
